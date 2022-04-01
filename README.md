@@ -6,9 +6,10 @@ There are two Solutions given:
 
 The Color Hue solution is the more simple solution with which we could start working and testing already, meanwhile the Labelled Data Solution will take more time, especially since we have to collect more data to reach a well enough accuracy.
 
-1. Color Hue can be used for testing 
-2. Meanwhile working on a better Model until finished and then just run with the new Model
+Working with the color alone is still really sensitive since a touch of red is already taken into consideration.
+(View: result.png in Color-Hue Folder)
 
+Tutorial I followed for setting up a Model through Tensorflow: https://www.youtube.com/watch?v=yqkISICHH-U
 
 # First Steps
 
