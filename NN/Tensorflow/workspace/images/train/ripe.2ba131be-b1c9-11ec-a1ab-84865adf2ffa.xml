@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>ripe</folder>
+	<filename>ripe.2ba131be-b1c9-11ec-a1ab-84865adf2ffa.jpg</filename>
+	<path>C:\Users\chiar\PycharmProjects\detect_ripe_strawberry\NN\Tensorflow\workspace\images\collectedimages\ripe\ripe.2ba131be-b1c9-11ec-a1ab-84865adf2ffa.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ripe</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>48</ymin>
+			<xmax>319</xmax>
+			<ymax>389</ymax>
+		</bndbox>
+	</object>
+</annotation>
