@@ -118,6 +118,14 @@ while (True):
     cv2.imshow('frame', frame)
 
     print(frame.shape)
+    m, n, r = frame.shape
+    arr = frame.reshape(m * n, -1)
+    df = pd.DataFrame(arr, columns=['b', 'g', 'r'])
+
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # resize
+    frame = cv2.resize(frame, None, fx=1 / 3, fy=1 / 3)
+
 
     # how will we quit it in the actual application?
 
@@ -132,19 +140,6 @@ vid.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
 
-# right now we have a static input => change to camera input
-# image = cv2.imread('strawberries.jpg')
-# print(image.shape)
-#
-# m,n,r = image.shape
-# arr = image.reshape(m*n, -1)
-# df = pd.DataFrame(arr, columns=['b', 'g', 'r'])
-#
-# # Convert from BGR to RGB
-# image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-#
-# # Resize to a third of the size
-# image = cv2.resize(image, None, fx=1/3, fy=1/3)
 #
 # show_rgb_hist(image)
 #
