@@ -1,10 +1,21 @@
-# FIRST STEPS
+# Implementation
+
+There are two Solutions given:
+- Solution one: Color Hue
+- Solution two: Labelled Data
+
+The Color Hue solution is the more simple solution with which we could start working and testing already, meanwhile the Labelled Data Solution will take more time, especially since we have to collect more data to reach a well enough accuracy.
+
+1. Color Hue can be used for testing 
+2. Meanwhile working on a better Model until finished and then just run with the new Model
+
+
+# First Steps
 
 ## Requirements
 
 For this Implementation to work u will need the following: 
 - Numpy
-- MatplotLib
 - OpenCV 
 - Python 3.x version
 (The Version that worked best for me was 3.7)
