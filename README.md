@@ -7,6 +7,7 @@ For this Implementation to work u will need the following:
 - MatplotLib
 - OpenCV 
 - Python 3.x version
+(The Version that worked best for me was 3.7)
 
 ## Installation of OpenCV (for Windows)
 
