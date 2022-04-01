@@ -28,4 +28,4 @@ Installing OpenCV in ur Project IDE works with the following command:
 > pip install opencv-python
 
 Importing the Module into the project is the following line:
-> import cv2 as cv
+> import cv2
