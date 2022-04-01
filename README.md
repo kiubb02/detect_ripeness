@@ -9,6 +9,7 @@ The Color Hue solution is the more simple solution with which we could start wor
 1. Color Hue can be used for testing 
 2. Meanwhile working on a better Model until finished and then just run with the new Model
 
+Tutorial I followed for setting up a Model through Tensorflow: https://www.youtube.com/watch?v=yqkISICHH-U
 
 # First Steps
 
