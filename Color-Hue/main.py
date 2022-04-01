@@ -33,6 +33,7 @@ def find_biggest_contour(image):
     cv2.drawContours(mask, [biggest_contour], -1, 255, -1)
     return biggest_contour, mask
 
+
 # most of those functions are HELPER FUNCTIONS and not needed in further implementations
 def show(image):
     # Figure size in inches
@@ -58,49 +59,6 @@ def overlay_mask(mask, image):
     show(img)
 
 
-def show_rgb_hist(image):
-    colours = ('r', 'g', 'b')
-    for i, c in enumerate(colours):
-        plt.figure(figsize=(20, 4))
-        histr = cv2.calcHist([image], [i], None, [256], [0, 256])
-        #         plt.plot(histr, color=c, lw=2)
-
-        if c == 'r': colours = [((i / 256, 0, 0)) for i in range(0, 256)]
-        if c == 'g': colours = [((0, i / 256, 0)) for i in range(0, 256)]
-        if c == 'b': colours = [((0, 0, i / 256)) for i in range(0, 256)]
-
-        plt.bar(range(0, 256), histr, color=colours, edgecolor=colours, width=1)
-        #         plt.xlim([0, 256])
-
-        plt.show()
-
-def show_hsv_hist(image):
-    # Hue
-    plt.figure(figsize=(20, 3))
-    histr = cv2.calcHist([image], [0], None, [180], [0, 180])
-    plt.xlim([0, 180])
-    colours = [colors.hsv_to_rgb((i/180, 1, 0.9)) for i in range(0, 180)]
-    plt.bar(range(0, 180), histr, color=colours, edgecolor=colours, width=1)
-    plt.title('Hue')
-
-    # Saturation
-    plt.figure(figsize=(20, 3))
-    histr = cv2.calcHist([image], [1], None, [256], [0, 256])
-    plt.xlim([0, 256])
-
-    colours = [colors.hsv_to_rgb((0, i/256, 1)) for i in range(0, 256)]
-    plt.bar(range(0, 256), histr, color=colours, edgecolor=colours, width=1)
-    plt.title('Saturation')
-
-    # Value
-    plt.figure(figsize=(20, 3))
-    histr = cv2.calcHist([image], [2], None, [256], [0, 256])
-    plt.xlim([0, 256])
-
-    colours = [colors.hsv_to_rgb((0, 1, i/256)) for i in range(0, 256)]
-    plt.bar(range(0, 256), histr, color=colours, edgecolor=colours, width=1)
-    plt.title('Value')
-
 ###############################################
 #                   PROGRAM                   #
 ###############################################
@@ -121,11 +79,32 @@ while (True):
     m, n, r = frame.shape
     arr = frame.reshape(m * n, -1)
     df = pd.DataFrame(arr, columns=['b', 'g', 'r'])
+    print(df)
 
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     # resize
     frame = cv2.resize(frame, None, fx=1 / 3, fy=1 / 3)
-
+    hsv = cv2.cvtColor(frame, cv2.COLOR_RGB2HSV)
+    images = []
+    for i in [0, 1, 2]:
+         colour = hsv.copy()
+         if i != 0: colour[:, :, 0] = 0
+         if i != 1: colour[:, :, 1] = 255
+         if i != 2: colour[:, :, 2] = 255
+         images.append(colour)
+    hsv_stack = np.vstack(images)
+    rgb_stack = cv2.cvtColor(hsv_stack, cv2.COLOR_HSV2RGB)
+    image_blur = cv2.GaussianBlur(frame, (7, 7), 0)
+    image_blur_hsv = cv2.cvtColor(image_blur, cv2.COLOR_RGB2HSV)
+    # 0-10 hue
+    min_red = np.array([0, 100, 80])
+    max_red = np.array([10, 256, 256])
+    image_red1 = cv2.inRange(image_blur_hsv, min_red, max_red)
+    #
+    # # 170-180 hue
+    min_red2 = np.array([170, 100, 80])
+    max_red2 = np.array([180, 256, 256])
+    image_red2 = cv2.inRange(image_blur_hsv, min_red2, max_red2)
 
     # how will we quit it in the actual application?
 
