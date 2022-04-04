@@ -1,6 +1,4 @@
 # Python code for Multiple Color Detection
-
-
 import numpy as np
 import cv2
 import cap
@@ -52,12 +50,12 @@ while (1):
                                        (x + w, y + h),
                                        (0, 0, 255), 2)
 
-            cv2.putText(imageFrame, "Red Colour", (x, y),
+            cv2.putText(imageFrame, "Ripe Strawberry", (x, y),
                         cv2.FONT_HERSHEY_SIMPLEX, 1.0,
                         (0, 0, 255))
 
     # Program Termination
-    cv2.imshow("Strawberry", imageFrame)
+    cv2.imshow("Ripe Strawberry Detection", imageFrame)
     if cv2.waitKey(10) & 0xFF == ord('q'):
         cap.release()
         cv2.destroyAllWindows()
