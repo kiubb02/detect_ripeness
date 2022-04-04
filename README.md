@@ -8,7 +8,7 @@ The Color Hue solution is the more simple solution with which we could start wor
 
 Working with the color alone is still really sensitive since a touch of red is already taken into consideration.
 (View: result.png in Color-Hue Folder)
-There we can see that it detects two "Ripe Strawberries" even tho I am just holding up one. 
+There we can see that it detects two "Ripe Strawberries" even tho I am just holding up one.  Updated outcome can be seen in new image (2022-04-04)
 
 Tutorial I followed for setting up a Model through Tensorflow: https://www.youtube.com/watch?v=yqkISICHH-U
 
